@@ -1,5 +1,5 @@
 # Apache SkyWalking data collect protocol
-Apache SkyWalking typically collect data from 
+Apache SkyWalking typically collect data from
 1. Language agent, including Java, .Net, PHP, Golang, NodeJS, Lua.
 1. Service mesh proxy, especially Envoy controlled by Istio
 1. Meter data, also known pure metrics data.
