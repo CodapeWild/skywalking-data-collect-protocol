@@ -5,3 +5,5 @@
 /bazel-testlogs
 
 .idea
+
+/gen/
