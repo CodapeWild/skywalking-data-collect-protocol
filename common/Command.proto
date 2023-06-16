@@ -23,13 +23,14 @@ package skywalking.v3;
 option java_multiple_files = true;
 option java_package = "org.apache.skywalking.apm.network.common.v3";
 option csharp_namespace = "SkyWalking.NetworkProtocol.V3";
-option go_package = "skywalking.apache.org/repo/goapi/collect/common/v3";
+option go_package = "github.com/CodapeWild/dktrace-idl/skywalking-v9.3.0-gen-go/language/agent/v3";
 
 import "common/Common.proto";
 
 // Command represents an protocol customized data when return.
 //
-// When the agent communicates with the OAP side using gRPC, the OAP uses Command to return the data content to the Agent.
+// When the agent communicates with the OAP side using gRPC, the OAP uses
+// Command to return the data content to the Agent.
 //
 // The available commands are,
 // Name: ConfigurationDiscoveryCommand
@@ -38,7 +39,8 @@ import "common/Common.proto";
 //     UUID: String
 //     properties: Key-value pairs rely on agent-side implementations
 //
-// Ref, Java agent supported configurations, https://skywalking.apache.org/docs/skywalking-java/next/en/setup/service-agent/java-agent/configuration-discovery/
+// Ref, Java agent supported configurations,
+// https://skywalking.apache.org/docs/skywalking-java/next/en/setup/service-agent/java-agent/configuration-discovery/
 //
 // Name: ProfileTaskQuery
 // Args:
@@ -75,18 +77,18 @@ import "common/Common.proto";
 //         ------------------------
 //     FixedTriggerDuration: Long
 message Command {
-    // Use command name to distinguish different data type.
-    string command = 1;
-    // Data content in command.
-    // The value of content needs to be serialized as string for transmission.
-    //
-    // Basic data type: convert as string.
-    // The list of basic data: multiple data are split by ",".
-    // Complex data: serialize string through json.
-    repeated KeyStringValuePair args = 2;
+  // Use command name to distinguish different data type.
+  string command = 1;
+  // Data content in command.
+  // The value of content needs to be serialized as string for transmission.
+  //
+  // Basic data type: convert as string.
+  // The list of basic data: multiple data are split by ",".
+  // Complex data: serialize string through json.
+  repeated KeyStringValuePair args = 2;
 }
 
 // Transferring multiple Command in agent and OAP.
 message Commands {
-    repeated Command commands = 1;
+  repeated Command commands = 1;
 }
