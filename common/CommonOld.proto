@@ -19,33 +19,33 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "org.apache.skywalking.apm.network.management.v3";
+option java_package = "org.apache.skywalking.apm.network.common.v3";
 option csharp_namespace = "SkyWalking.NetworkProtocol.V3";
-option go_package = "skywalking/network/management/v3";
+option go_package = "github.com/CodapeWild/dktrace-idl/skywalking-v8.3.0-gen-go/common/v3";
 
-import "common/Common.proto";
-
-// Define the service reporting the extra information of the instance.
-service ManagementService {
-    // Report custom properties of a service instance.
-    rpc reportInstanceProperties (InstanceProperties) returns (Commands) {
-    }
-
-    // Keep the instance alive in the backend analysis.
-    // Only recommend to do separate keepAlive report when no trace and metrics needs to be reported.
-    // Otherwise, it is duplicated.
-    rpc keepAlive (InstancePingPkg) returns (Commands) {
-
-    }
+message KeyStringValuePair {
+  string key = 1;
+  string value = 2;
 }
 
-message InstanceProperties {
-    string service = 1;
-    string serviceInstance = 2;
-    repeated KeyStringValuePair properties = 3;
+message CPU {
+  double usagePercent = 2;
 }
 
-message InstancePingPkg {
-    string service = 1;
-    string serviceInstance = 2;
+// In most cases, detect point should be `server` or `client`.
+// Even in service mesh, this means `server`/`client` side sidecar
+// `proxy` is reserved only.
+enum DetectPoint {
+  client = 0;
+  server = 1;
+  proxy = 2;
+}
+
+message Commands {
+  repeated Command commands = 1;
+}
+
+message Command {
+  string command = 1;
+  repeated KeyStringValuePair args = 2;
 }
