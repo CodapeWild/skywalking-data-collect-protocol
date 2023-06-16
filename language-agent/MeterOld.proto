@@ -18,6 +18,8 @@
 
 syntax = "proto3";
 
+package skywalking.v3.old;
+
 option java_multiple_files = true;
 option java_package = "org.apache.skywalking.apm.network.language.agent.v3";
 option go_package = "github.com/CodapeWild/dktrace-idl/skywalking-v8.3.0-gen-go/language/agent/v3";
