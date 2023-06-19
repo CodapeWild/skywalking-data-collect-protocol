@@ -22,7 +22,7 @@ package skywalking.v3;
 
 option java_multiple_files = true;
 option java_package = "org.apache.skywalking.apm.network.ebpf.profiling.process.v3";
-option go_package = "github.com/CodapeWild/dktrace-idl/skywalking-gen-go/ebpf/profiling/process/v3";
+option go_package = "github.com/GuanceCloud/tracing-protos/skywalking-gen-go/ebpf/profiling/process/v3";
 
 import "common/Common.proto";
 import "common/Command.proto";

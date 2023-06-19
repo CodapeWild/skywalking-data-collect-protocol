@@ -23,7 +23,7 @@ package skywalking.v3;
 option java_multiple_files = true;
 option java_package = "org.apache.skywalking.apm.network.event.v3";
 option csharp_namespace = "SkyWalking.NetworkProtocol.V3";
-option go_package = "github.com/CodapeWild/dktrace-idl/skywalking-gen-go/event/v3";
+option go_package = "github.com/GuanceCloud/tracing-protos/skywalking-gen-go/event/v3";
 
 import "common/Command.proto";
 
